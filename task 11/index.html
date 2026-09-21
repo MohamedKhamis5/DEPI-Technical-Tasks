@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Change Email Address</h1>
+    <form>
+        <label for="un">User Name</label>
+        <input type="text" id="un" name="userName" required pattern="[A-Za-z]+">
+        <div class="hint">The required user name may only be a series of alphabetical characters.</div>
+        <label for="em">Email</label>
+        <input type="text" id="em" name="email" required pattern="[^@\s]+@[^@\s]+">
+        <div class="hint">The required email address may not include any special characters other than the '@' sign.</div>
+        <input type="submit" value="Change">
+    </form>
+    <hr>
+    <label for="r">Red</label>
+    <input type="range" name="red" id="r" min="0" max="255">
+    <label for="g">Green</label>
+    <input type="range" name="green" id="g" min="0" max="255">
+    <label for="b">Blue</label>
+    <input type="range" name="blue" id="b" min="0" max="255">
+    <div id="di">Change the 3 Color Ranges above and observe my color Change</div>
+    <hr>
+    <label for="p1">Progress</label>
+    <progress id="p1" value="5" max="100"></progress>
+    <span>5 %</span>
+    <label for="p2">Progress</label>
+    <progress id="p2" value="50" max="100"></progress>
+    <span>50 %</span>
+    <hr>
+    <input type="number" id="num1" min="0" max="10" value="0">
+    <input type="range" id="range1" min="0" max="10" value="0">
+    <output id="out1">0</output>
+    <input type="number" id="num2" min="0" max="10" value="3">
+    <input type="range" id="range2" min="0" max="10" value="3">
+    <output id="out2">3</output>
+    <script src="scr.js"></script>
+</body>
+</html>

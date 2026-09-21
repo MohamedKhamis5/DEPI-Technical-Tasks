@@ -1,0 +1,51 @@
+.main{
+    height: 600px;
+    width: 200px;
+    position: relative;
+    background-color: black;
+    top: 50%;
+    left: 50%;
+}
+span{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.re{
+    background-color: red;
+    top: 69%;
+    left: 10%;
+}
+.gr{
+    background-color: green;
+    top: 6%;
+    left: 10%;
+}
+.ye{
+    background-color: yellow;
+    top: 38%;
+    left: 10%;
+}
+.ha{
+    width: 20px;
+    height: 200px;
+    background-color: black;
+    position: relative;
+    left: 54%;
+}
+span:hover{
+    width: 175px;
+    height: 175px;
+    transition: all 1s;
+    margin: -10px;
+}
+.ye:hover{
+    box-shadow: 0 0 50px 20px yellow;
+}
+.gr:hover{
+    box-shadow: 0 0 50px 20px green;
+}
+.re:hover{
+    box-shadow: 0 0 50px 20px red;
+}
