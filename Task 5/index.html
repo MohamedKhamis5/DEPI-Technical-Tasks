@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>harnishdesign.net</title>
+    <title>Mohamed Khamis | Front-End Developer Portfolio</title>
+    <meta name="description" content="Mohamed Khamis is a front-end developer in Damietta, Egypt, creating responsive websites and user-focused interfaces with React.">
+    <meta name="author" content="Mohamed Khamis">
+    <meta name="theme-color" content="#20c997">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mohamed Khamis | Front-End Developer Portfolio">
+    <meta property="og:description" content="Explore Mohamed Khamis's front-end development work, skills, and experience building responsive websites with React.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Mohamed Khamis | Front-End Developer Portfolio">
+    <meta name="twitter:description" content="Explore Mohamed Khamis's front-end development work, skills, and experience building responsive websites with React.">
+    <link rel="icon" type="image/png" href="Assets/me.png">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/port.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +36,8 @@
        </div> 
          <i class="fa-solid fa-bars hamburger menu-toggle"></i>
         <nav>
-            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#usp">Why Me</a></li>
             <li><a href="#about">About Me</a></li>
             <li><a href="#services">What I Do</a></li>
             <li><a href="#summary">Resume</a></li>
@@ -56,7 +67,7 @@
               </span>
             </div>
             <p>based in Egypt, Damietta</p>
-            <button class="hi">Hire Me</button>
+            <a class="hi" href="Assets/Mohamed_Khamis_CV.pdf" download="Mohamed_Khamis_CV.pdf">Hire Me</a>
             <i class="fa-solid fa-chevron-down"></i>
             <div class="setting">
                 <a ><i class="fa-solid fa-gear"></i></a>
@@ -87,6 +98,15 @@
  </header>
  <!--End landing -->
   <div class="container">
+    <section class="usp" id="usp">
+      <div class="special-heading">
+        <h1>USP</h1>
+        <h2>Why Me</h2>
+      </div>
+      <div class="usmain">
+        <p><span>Good interfaces don’t happen by accident.</span> They’re built through thoughtful decisions, clean execution, and attention to the details users may never notice — but always feel. I’m a Front-End Developer who turns ideas into responsive digital experiences, combining creativity and technology to create websites that are intuitive, polished, and built with purpose.</p>
+      </div>
+    </section>
     <!-- Start About -->
   <section class="about" id="about">
     <div class="special-heading">
@@ -107,7 +127,7 @@
            <p><span>Email:</span> <a href="mailto:mohamedkhamis2576@gmail.com">mohamedkhamis2576@gmail.com</a></p> 
            <p><span>Age:</span> 20</p> 
            <p><span>From:</span> Egypt, Damietta</p>
-           <button class="cvb"><a href="#landing">Download CV</a></button> 
+           <a class="cvb" href="Assets/Mohamed_Khamis_CV.pdf" download="Mohamed_Khamis_CV.pdf">Download CV</a>
        </div>
     </div>
     <div class="bottom">
@@ -281,7 +301,7 @@
 
             </div>
          </div>
-         <button><a href="#landing">Download CV <span><i class="fa-solid fa-download"></i></span></a></button>
+         <a class="cv-download" href="Assets/Mohamed_Khamis_CV.pdf" download="Mohamed_Khamis_CV.pdf">Download CV <span><i class="fa-solid fa-download"></i></span></a>
        </div>
     </section>
     <!-- End Summary -->
@@ -447,5 +467,160 @@
            </footer>
            <!-- End Rights -->
   </div>
+    <script>
+        const menuToggle = document.querySelector(".menu-toggle");
+        const siteNavigation = document.querySelector(".left nav");
+
+        if (siteNavigation) {
+            const navigationItems = Array.from(siteNavigation.querySelectorAll("a"))
+                .map((link) => ({
+                    link,
+                    section: link.getAttribute("href") === "#"
+                        ? document.querySelector("header")
+                        : document.querySelector(link.getAttribute("href"))
+                }))
+                .filter((item) => item.section);
+
+            const updateActiveNavigation = () => {
+                const readingPosition = window.scrollY + window.innerHeight * 0.35;
+                let activeItem = navigationItems[0];
+
+                navigationItems.forEach((item) => {
+                    const sectionTop = item.section.getBoundingClientRect().top + window.scrollY;
+                    if (sectionTop <= readingPosition) {
+                        activeItem = item;
+                    }
+                });
+
+                navigationItems.forEach((item) => {
+                    item.link.classList.toggle("active", item === activeItem);
+                });
+            };
+
+            window.addEventListener("scroll", updateActiveNavigation, { passive: true });
+            window.addEventListener("resize", updateActiveNavigation);
+            updateActiveNavigation();
+        }
+
+        if (menuToggle && siteNavigation) {
+            menuToggle.setAttribute("role", "button");
+            menuToggle.setAttribute("tabindex", "0");
+            menuToggle.setAttribute("aria-label", "Toggle navigation");
+            menuToggle.setAttribute("aria-controls", "site-navigation");
+            menuToggle.setAttribute("aria-expanded", "false");
+            siteNavigation.id = "site-navigation";
+
+            const toggleNavigation = () => {
+                const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+                menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+                menuToggle.classList.toggle("fa-bars", isExpanded);
+                menuToggle.classList.toggle("fa-xmark", !isExpanded);
+                menuToggle.closest(".left").classList.toggle("nav-open", !isExpanded);
+            };
+
+            menuToggle.addEventListener("click", toggleNavigation);
+            menuToggle.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    toggleNavigation();
+                }
+            });
+
+            siteNavigation.addEventListener("click", (event) => {
+                if (event.target.closest("a")) {
+                    menuToggle.setAttribute("aria-expanded", "false");
+                    menuToggle.classList.add("fa-bars");
+                    menuToggle.classList.remove("fa-xmark");
+                    menuToggle.closest(".left").classList.remove("nav-open");
+                }
+            });
+        }
+
+        const colorSwatches = Array.from(document.querySelectorAll(".setdisp .colrs span"));
+        const resetThemeButton = document.querySelector(".setdisp .re");
+        const defaultAccentColor = "#20c997";
+        const accentStorageKey = "portfolio-accent-color";
+        const availableAccentColors = colorSwatches.map((swatch) => getComputedStyle(swatch).backgroundColor);
+
+        const applyAccentColor = (color) => {
+            document.documentElement.style.setProperty("--accent-color", color);
+            localStorage.setItem(accentStorageKey, color);
+        };
+
+        const selectColorSwatch = (selectedSwatch) => {
+            colorSwatches.forEach((swatch) => {
+                const isSelected = swatch === selectedSwatch;
+                swatch.classList.toggle("is-selected", isSelected);
+                swatch.setAttribute("aria-pressed", String(isSelected));
+            });
+        };
+
+        colorSwatches.forEach((swatch) => {
+            swatch.setAttribute("role", "button");
+            swatch.setAttribute("tabindex", "0");
+            swatch.setAttribute("aria-label", "Choose accent color");
+            swatch.setAttribute("aria-pressed", "false");
+
+            const selectColor = () => {
+                selectColorSwatch(swatch);
+                applyAccentColor(getComputedStyle(swatch).backgroundColor);
+            };
+            swatch.addEventListener("click", selectColor);
+            swatch.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    selectColor();
+                }
+            });
+        });
+
+        if (resetThemeButton) {
+            resetThemeButton.addEventListener("click", () => {
+                document.documentElement.style.setProperty("--accent-color", defaultAccentColor);
+                localStorage.removeItem(accentStorageKey);
+                selectColorSwatch(null);
+            });
+        }
+
+        const savedAccentColor = localStorage.getItem(accentStorageKey);
+        if (availableAccentColors.includes(savedAccentColor)) {
+            document.documentElement.style.setProperty("--accent-color", savedAccentColor);
+            selectColorSwatch(colorSwatches[availableAccentColors.indexOf(savedAccentColor)]);
+        }
+
+        const workCategories = Array.from(document.querySelectorAll(".work .category p"));
+        const workPhotos = document.querySelector(".work .photos");
+        const portfolioProjects = Array.from(document.querySelectorAll(".work .photos .ph"));
+
+        const filterProjects = (category) => {
+            portfolioProjects.forEach((project) => {
+                const projectCategory = project.querySelector(".hidden p")?.textContent.trim();
+                project.hidden = category !== "All" && projectCategory !== category;
+            });
+
+            workPhotos.classList.toggle("is-filtered", category !== "All");
+            workCategories.forEach((item) => {
+                const isSelected = item.textContent.trim() === category;
+                item.classList.toggle("active", isSelected);
+                item.setAttribute("aria-pressed", String(isSelected));
+            });
+        };
+
+        workCategories.forEach((item) => {
+            item.setAttribute("role", "button");
+            item.setAttribute("tabindex", "0");
+
+            const selectCategory = () => filterProjects(item.textContent.trim());
+            item.addEventListener("click", selectCategory);
+            item.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    selectCategory();
+                }
+            });
+        });
+
+        filterProjects("All");
+    </script>
 </body>
 </html>
