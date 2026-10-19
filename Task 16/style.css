@@ -1,0 +1,22 @@
+.users{
+    padding: 20px;
+    background-color: #c7c1c1;
+    margin-bottom: 30px;
+}
+.users button{
+    background-color: gray;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin: 10px;
+}
+.posts{
+    padding: 20px;
+    background-color: #c7c1c1;
+    margin-bottom: 30px;
+}
+.posts li{
+    margin-left: 20px;
+    font-size: 19px;
+    color: rgb(62, 36, 2);
+}

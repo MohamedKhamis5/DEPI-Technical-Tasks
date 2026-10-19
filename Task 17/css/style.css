@@ -1,0 +1,39 @@
+body {
+      background-color: #f8f9fa;
+      color: #212529;
+    }
+    .text-muted-custom {
+      color: #6c757d;
+      font-size: 0.9rem;
+    }
+    .card {
+      border: 1px solid #e9ecef;
+      border-radius: 0.5rem;
+    }
+    .read-more-link {
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .footer-section {
+      background-color: #1e2430;
+      color: #a0aec0;
+      position: relative;
+      margin-top: 5rem;
+    }
+    .newsletter-card {
+      position: relative;
+      top: -45px;
+      margin-bottom: -15px;
+      z-index: 10;
+    }
+    .footer-link {
+      color: #a0aec0;
+      text-decoration: none;
+      font-size: 0.85rem;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .footer-link:hover {
+      color: #ffffff;
+    }

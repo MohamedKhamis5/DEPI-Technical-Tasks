@@ -1,0 +1,29 @@
+*{
+    direction: rtl;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;  
+}
+header{
+    background-color: #3A5A40;
+    padding: 16px 8px;
+}
+.logo p{
+    font-style: italic;
+}
+.data div{
+    display: flex;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+}
+section{
+    background-image: url("WhatsApp\ Image\ 2026-10-16\ at\ 2.45.58\ PM.jpeg");
+}
+section .con{
+    width: 700px;
+}
+section .mos{
+}
